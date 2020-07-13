@@ -1,0 +1,22 @@
+{
+  "name": "mean-app-assignment-3",
+  "version": "1.0.0",
+  "description": "Assignment-3 on Angular integration with node, express and mongodb",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "5.0.0",
+    "body-parser": "1.19.0",
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "5.9.23",
+    "passport": "0.4.1",
+    "passport-auth0": "1.3.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Sarath C - FSD-2020",
+  "license": "ISC"
+}
