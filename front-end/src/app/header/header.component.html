@@ -1,0 +1,18 @@
+<div class="jumbotron jumbotron-fluid mb-0">
+    <div class="container text-center">
+        <h1 class="display-4">{{title}}</h1>
+    </div>
+</div>
+
+<div class="card-header">
+    <div class="navbar">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a routerLink="products" routerLinkActive="active" class="nav-link">Products</a></li>
+        </ul>
+        <ul class="nav nav-pills justify-contents-end">
+            <li *ngIf="!loggedIn()" class="nav-item"><a  routerLink="register" routerLinkActive="active" class="nav-link">Register</a></li>
+            <li *ngIf="!loggedIn()" class="nav-item"><a  routerLink="login" routerLinkActive="active" class="nav-link">Login</a></li>
+            <li *ngIf="loggedIn()" class="nav-item"><a  (click)="logout()" routerLink="" routerLinkActive="active" class="nav-link">Logout</a></li>
+        </ul>
+    </div>
+</div>

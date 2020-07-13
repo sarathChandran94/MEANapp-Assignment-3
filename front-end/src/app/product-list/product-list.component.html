@@ -1,0 +1,292 @@
+<!-- display product (table format) -->
+<!-- <div class="card border">
+    <div class="card-header">
+        <h3>{{title}}</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive border border-info">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button (click)="imageToggle()" class="btn btn-success">
+                                {{showImage? 'Hide' : "Show"}} Image
+                            </button>
+                        </th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 Star Rating</th>
+                        <th *ngIf="loggedIn()">Edit/Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let product of products'>
+                        <td><img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
+                        <td>{{ product.productName }}</td>
+                        <td>{{ product.productCode }}</td>
+                        <td>{{ product.releaseDate }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.starRating }}</td>
+                        <td>
+                            <button *ngIf="loggedIn()" (click)="editProduct(product._id) ;editBookToggle()" class="btn btn-sm btn-secondary" >edit</button>
+                            <button *ngIf="loggedIn()" (click)="deleteProduct(product._id)" class="btn btn-sm btn-secondary" >delete</button>
+                        </td>
+                    </tr>
+                     <tr>   comment this <tr>... work in progress
+                        <form >
+                        <td><input type="text" name="p_image" [(ngModel)]="productItem.imageUrl" id=""></td>
+                        <td><input type="text" name="p_name" [(ngModel)]="productItem.productName" id=""></td>
+                        <td><input type="text" name="p_code" [(ngModel)]="productItem.productCode" id=""></td>
+                        <td><input type="text" name="p_date" [(ngModel)]="productItem.releaseDate" id=""></td>
+                        <td><input type="text" name="p_price" [(ngModel)]="productItem.price" id=""></td>
+                        <td><input type="text" name="p_star" [(ngModel)]="productItem.starRating" id=""></td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br> -->
+
+<!-- add product -->
+<!-- <div *ngIf="addBook" class="card border">
+    <form (ngSubmit)="addProduct()">
+    <div class="card-header">
+        <h3>Add Product</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive border border-info">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>5 Star Rating</th>
+                        <th>ImageUrl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="p_image" [(ngModel)]="productItem.productId" /></td>
+                        <td><input type="text" name="p_name" [(ngModel)]="productItem.productName" /></td>
+                        <td><input type="text" name="p_code" [(ngModel)]="productItem.productCode" /></td>
+                        <td><input type="text" name="p_date" [(ngModel)]="productItem.releaseDate" /></td>
+                        <td><input type="text" name="p_date" [(ngModel)]="productItem.description" /></td>
+                        <td><input type="text" name="p_price" [(ngModel)]="productItem.price" /></td>
+                        <td><input type="text" name="p_star" [(ngModel)]="productItem.starRating" /></td>
+                        <td><input type="text" name="p_star" [(ngModel)]="productItem.imageUrl" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan=8><button type="submit" class="btn btn-warning float-right">Add</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+</div>
+
+<div class="container w-100">
+    <button *ngIf="loggedIn()" (click)="addBookToggle()" class="btn btn-warning float-right">
+        {{addBook? 'Cancel' : "Add Product"}}
+    </button>
+</div>
+
+<br>
+<br> -->
+
+<!-- editProduct -->
+<!-- <div *ngIf="editBook" class="card border">
+    <form (ngSubmit)="editedProduct()">
+    <div class="card-header">
+        <h3>Edit Product</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive border border-info">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>5 Star Rating</th>
+                        <th>ImageUrl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="p_image" [(ngModel)]="editItem.productId" /></td>
+                        <td><input type="text" name="p_name" [(ngModel)]="editItem.productName" /></td>
+                        <td><input type="text" name="p_code" [(ngModel)]="editItem.productCode" /></td>
+                        <td><input type="text" name="p_date" [(ngModel)]="editItem.releaseDate" /></td>
+                        <td><input type="text" name="p_date" [(ngModel)]="editItem.description" /></td>
+                        <td><input type="text" name="p_price" [(ngModel)]="editItem.price" /></td>
+                        <td><input type="text" name="p_star" [(ngModel)]="editItem.starRating" /></td>
+                        <td><input type="text" name="p_star" [(ngModel)]="editItem.imageUrl" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan=8><button type="submit" class="btn btn-warning float-right">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+</div>
+ -->
+
+
+
+
+
+
+
+
+<!-- product display(card format) -->
+
+<div class="container p-3">
+<div class="row row-cols-1 row-cols-md-3 mt-4">
+    <div class="col mb-4" *ngFor="let product of products">
+        <div class="card border-success text-center p-2 mb-3 h-100">
+            <div class="card-header text-muted">
+                <img *ngIf="showImage" [src]='product.imageUrl' [title]='product.productName' [style.height.px]='imageHeight' [style.margin.px]='imageMargin'>
+            </div>
+            <button (click)="imageToggle()" class="btn btn-secondary">{{showImage? 'Hide' : "Show"}} Image</button>
+            <div class="card-body text-dark">
+                <h5 class="card-title">{{product.productName}}</h5>
+                <p class="card-text">{{product.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush text-muted">
+                <li class="list-group-item">Availability: {{product.releaseDate}}</li>
+                <li class="list-group-item">Code: {{product.productCode}}</li>
+            </ul>
+            <div class="card-footer">
+                <small class="text mr-5">₹ {{product.price}}</small>
+                <small class="text ml-5 text-right">⭐ {{product.starRating}}</small>
+            </div>
+            <div *ngIf="loggedIn()" class="card-footer btn-group">
+                <button (click)="editProduct(product._id) ;editBookToggle()" class="btn btn-sm btn-outline-warning" >edit</button>
+                <button (click)="deleteProduct(product._id)" class="btn btn-sm btn-outline-danger" >delete</button>
+            </div>
+        </div>
+    </div> <!-- col mb-4 -->
+</div>
+
+<!-- Add product (table format)-->
+<div *ngIf="addBook" class="card border">
+    <form (ngSubmit)="addProduct()" #addProductForm="ngForm">
+        <div class="card-header">
+            <h3>Add Product</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>5 Star Rating</th>
+                            <th>ImageUrl</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" name="p_image" [(ngModel)]="productItem.productId" required/></td>
+                            <td><input type="text" name="p_name" [(ngModel)]="productItem.productName" required/></td>
+                            <td><input type="text" name="p_code" [(ngModel)]="productItem.productCode" required/></td>
+                            <td><input type="text" name="p_date" [(ngModel)]="productItem.releaseDate" required/></td>
+                            <td><input type="text" name="p_date" [(ngModel)]="productItem.description" required/></td>
+                            <td><input type="number" name="p_price" [(ngModel)]="productItem.price" required/></td>
+                            <td><input type="number" name="p_star" [(ngModel)]="productItem.starRating" required/></td>
+                            <td><input type="text" name="p_star" [(ngModel)]="productItem.imageUrl" required/></td>
+                        </tr>
+                        <tr>
+                            <td colspan=8><button type="submit" class="btn btn-warning float-right" [disabled]="!addProductForm.form.valid">Add</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> <!-- card-body -->
+    </form>
+</div>
+
+<br>
+
+<!-- add product button -->
+<div class="container w-100">
+    <button *ngIf="loggedIn()" (click)="addBookToggle()" class="btn btn-warning float-right">
+        {{addBook? 'Cancel' : "Add Product"}}
+    </button>
+</div>
+
+<br>
+<br>
+<br>
+
+<!-- edit product -->
+<div *ngIf="editBook" class="card border">
+    <form (ngSubmit)="editedProduct()" #editProductForm="ngForm">
+        <div class="card-header">
+            <h3>Edit Product</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>5 Star Rating</th>
+                            <th>ImageUrl</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" name="p_image" [(ngModel)]="editItem.productId" required/></td>
+                            <td><input type="text" name="p_name" [(ngModel)]="editItem.productName" required/></td>
+                            <td><input type="text" name="p_code" [(ngModel)]="editItem.productCode" required/></td>
+                            <td><input type="text" name="p_date" [(ngModel)]="editItem.releaseDate" required/></td>
+                            <td><input type="text" name="p_date" [(ngModel)]="editItem.description" required/></td>
+                            <td><input type="number" name="p_price" [(ngModel)]="editItem.price" required/></td>
+                            <td><input type="number" name="p_star" [(ngModel)]="editItem.starRating" required/></td>
+                            <td><input type="text" name="p_star" [(ngModel)]="editItem.imageUrl" required/></td>
+                        </tr>
+                        <tr>
+                            <td colspan=8><button type="submit" class="btn btn-warning float-right" [disabled]="!editProductForm.form.valid">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> <!-- card-body -->
+    </form>
+
+<br>
+
+<div class="container w-100">
+    <button *ngIf="loggedIn()" (click)="editBookToggle()" class="btn btn-warning float-right">
+        Cancel
+    </button>
+</div>
+
+</div>
+
+</div>  <!-- container p-3 end-->
