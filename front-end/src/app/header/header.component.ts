@@ -9,10 +9,12 @@ import { AuthService } from '../services/auth.service';
 export class HeaderComponent implements OnInit {
     title: String = "Product App"
 
-  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-  }
+
+    constructor(private authService: AuthService) { }
+
+    ngOnInit(): void {
+    }
 
     loggedIn() {
         return this.authService.loggedIn();

@@ -1,0 +1,22 @@
+#price {
+    font-weight: bolder;
+}
+
+#myanim {
+    box-shadow: 0 2px 5px gray;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#myanim::after {
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#myanim:hover {
+    -webkit-transform: scale(1.25, 1.25);
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 5px 15px gray;
+}
+
+#myanim:hover::after {
+    opacity: 1;
+}

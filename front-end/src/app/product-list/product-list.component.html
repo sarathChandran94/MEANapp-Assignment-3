@@ -156,9 +156,9 @@
 <!-- product display(card format) -->
 
 <div class="container p-3">
-<div class="row row-cols-1 row-cols-md-3 mt-4">
-    <div class="col mb-4" *ngFor="let product of products">
-        <div class="card border-success text-center p-2 mb-3 h-100">
+<div  class="row row-cols-1 row-cols-md-3 mt-4">
+    <div  class="col mb-4" *ngFor="let product of products">
+        <div id="myanim" class="card border-success text-center p-2 mb-3 h-100">
             <div class="card-header text-muted">
                 <img *ngIf="showImage" [src]='product.imageUrl' [title]='product.productName' [style.height.px]='imageHeight' [style.margin.px]='imageMargin'>
             </div>
@@ -172,7 +172,7 @@
                 <li class="list-group-item">Code: {{product.productCode}}</li>
             </ul>
             <div class="card-footer">
-                <small class="text mr-5">₹ {{product.price}}</small>
+                <small id="price" class="text mr-5">₹ {{product.price}}</small>
                 <small class="text ml-5 text-right">⭐ {{product.starRating}}</small>
             </div>
             <div *ngIf="loggedIn()" class="card-footer btn-group">
@@ -206,14 +206,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="number" name="p_image" [(ngModel)]="productItem.productId" required/></td>
+                            <td><input type="number" name="p_id" [(ngModel)]="productItem.productId" required/></td>
                             <td><input type="text" name="p_name" [(ngModel)]="productItem.productName" required/></td>
                             <td><input type="text" name="p_code" [(ngModel)]="productItem.productCode" required/></td>
                             <td><input type="text" name="p_date" [(ngModel)]="productItem.releaseDate" required/></td>
-                            <td><input type="text" name="p_date" [(ngModel)]="productItem.description" required/></td>
+                            <td><input type="text" name="p_description" [(ngModel)]="productItem.description" required/></td>
                             <td><input type="number" name="p_price" [(ngModel)]="productItem.price" required/></td>
                             <td><input type="number" name="p_star" [(ngModel)]="productItem.starRating" required/></td>
-                            <td><input type="text" name="p_star" [(ngModel)]="productItem.imageUrl" required/></td>
+                            <td><input type="text" name="p_image" [(ngModel)]="productItem.imageUrl" required/></td>
                         </tr>
                         <tr>
                             <td colspan=8><button type="submit" class="btn btn-warning float-right" [disabled]="!addProductForm.form.valid">Add</button></td>
@@ -261,14 +261,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="number" name="p_image" [(ngModel)]="editItem.productId" required/></td>
+                            <td><input type="number" name="p_id" [(ngModel)]="editItem.productId" required/></td>
                             <td><input type="text" name="p_name" [(ngModel)]="editItem.productName" required/></td>
                             <td><input type="text" name="p_code" [(ngModel)]="editItem.productCode" required/></td>
                             <td><input type="text" name="p_date" [(ngModel)]="editItem.releaseDate" required/></td>
-                            <td><input type="text" name="p_date" [(ngModel)]="editItem.description" required/></td>
+                            <td><input type="text" name="p_description" [(ngModel)]="editItem.description" required/></td>
                             <td><input type="number" name="p_price" [(ngModel)]="editItem.price" required/></td>
                             <td><input type="number" name="p_star" [(ngModel)]="editItem.starRating" required/></td>
-                            <td><input type="text" name="p_star" [(ngModel)]="editItem.imageUrl" required/></td>
+                            <td><input type="text" name="p_image" [(ngModel)]="editItem.imageUrl" required/></td>
                         </tr>
                         <tr>
                             <td colspan=8><button type="submit" class="btn btn-warning float-right" [disabled]="!editProductForm.form.valid">Edit</button></td>

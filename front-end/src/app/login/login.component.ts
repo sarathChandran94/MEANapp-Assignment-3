@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     }
     err: any;
     submitted = false;
+    liveUser: any;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
         this.authService.loginUser(this.user)
             .subscribe(
                 response => {
-                    // console.log(response);
+                    this.liveUser = response['user'];
+                    console.log(this.liveUser);
                     localStorage.setItem('token', response["token"])
                     this.router.navigate(['']);
                     this.submitted = true;

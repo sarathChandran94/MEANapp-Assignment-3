@@ -88,7 +88,7 @@ router.post('/login', (req, res) => {
                 if (result === true) {
                     let payload = { subject: user._id }
                     let token = jwt.sign(payload, 'mySecret');
-                    res.status(200).send({token});
+                    res.status(200).send({token,user});
                 }
                 if (result === false) {
                     res.status(401).send('Incorrect Password!');
